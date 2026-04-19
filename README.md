@@ -1,52 +1,92 @@
-# Hey, I'm Siddhant 👋
+# Hey, I'm Siddhant 👋  
 
-I'm a developer with a passion for **autonomous systems** and **robotics** — currently deep in academic research while building things on the side that I actually care about.
+I’m a robotics engineer focused on **control, optimization, and autonomy** — building systems where **model-based methods and learning meet**.
 
-When I'm not training models or debugging pipelines, I'm probably reading something interesting about math or systems design (and occasionally writing about it).
+Currently finishing my MS in Electrical Engineering at NYU, working on **multi-modal anomaly detection for autonomous vehicles** and building high-fidelity simulation pipelines across CARLA, Isaac Sim, and MuJoCo.
 
----
-
-## 🔭 What I'm up to
-
-- 🤖 Exploring **autonomous systems & robotics** — perception, planning, and everything in between
-- 🎓 Working through a degree that keeps pushing my thinking
-- 🛠️ Building a side project I'm excited about *(more soon)*
-- ✍️ Writing about concepts I find genuinely fascinating — AI, math, engineering ideas
+I care about one thing:  
+> making autonomous systems behave reliably in the real world — not just in clean simulations.
 
 ---
 
-## 🧰 Tech I work with
+## 🔭 What I'm working on
+
+- 🚗 **Autonomous Driving Research (ASAS Lab)**  
+  Multi-modal anomaly detection using VLMs + statistical models  
+  → semantic reasoning (Cosmos) + internal fault detection (Isolation Forest)  
+  → evaluated in CARLA with ISO 26262-style safety framing  
+
+- 🧠 **Embodied AI for Edge Cases**  
+  Defining *“external anomalies”* as semantic constraint violations  
+  → bridging perception → reasoning → downstream planning  
+
+- 🛰️ **Space Robotics Simulation**  
+  Multi-satellite debris containment (6-DOF dynamics, CW models, cyclic pursuit)  
+  → validated across analytical + MuJoCo physics  
+
+- 🐕 **Legged Locomotion (Isaac Lab)**  
+  PPO-based torque-level control for Unitree Go2  
+  → actuator-aware training, symmetry-based reward shaping  
+
+- 🤖 **Multi-Robot Systems (ROS 2 + PX4)**  
+  Decentralized flocking across aerial + ground robots  
+  → real-time control with communication + sensing constraints  
+
+---
+
+## 🧰 Tech I actually use
 
 **Core**
+- Python, C++  
+- PyTorch, JAX  
+- CUDA (HPC / SLURM training)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
+**Robotics & Simulation**
+- ROS / ROS 2, MoveIt  
+- CARLA, Isaac Sim, MuJoCo, Gazebo  
+- PX4, Autoware  
 
-**Robotics & Infra**
-
-![ROS2](https://img.shields.io/badge/ROS2-22314E?style=flat&logo=ros&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+**Controls & Planning**
+- MPC / NMPC, MPPI, iLQR  
+- LQR, State Estimation (EKF, Particle Filters)  
+- RRT*, A*, trajectory optimization  
 
 ---
 
-## 🌱 Currently learning
+## 🌱 Currently thinking about
 
-- Perception pipelines for autonomous vehicles
-- Geometric deep learning
-- How to ship things faster without breaking everything
+- How **learning-based policies + optimal control** should coexist (not compete)  
+- Behavior simulation as the *real bottleneck* in autonomy stacks  
+- Pushing **simulation → real transfer** without cheating physics  
+- Real-time constraints in VLM-based reasoning systems  
+
+---
+
+## ✍️ Writing / Projects
+
+I write to understand things deeply — usually at the intersection of:  
+- control theory  
+- reinforcement learning  
+- real-world robotics systems  
+
+Recent work:
+- *VLM-based anomaly detection for AVs (Cosmos-Reasoning)*  
+- *Decentralized swarm control under real-world constraints*  
+- *Physics-consistent space robotics simulation*  
 
 ---
 
 ## 📫 Say hello
 
-I'm always happy to chat about robotics, AI research, or ideas worth sharing.
+If you're working on autonomy, manipulation, or simulation-heavy robotics — I’m always up for a serious conversation.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR_HANDLE)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=github&logoColor=white)](https://officially-siddhant.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR_HANDLE)  
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=github&logoColor=white)](https://officially-siddhant.github.io)  
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:YOUR_EMAIL)
 
 ---
 
-*Also building my [portfolio site](https://officially-siddhant.github.io) — projects, writing, and a place to share things I find interesting.*
+## ⚡ Philosophy
+
+> The best robotics systems aren’t purely learned or purely modeled —  
+> they’re engineered at the boundary between the two.
