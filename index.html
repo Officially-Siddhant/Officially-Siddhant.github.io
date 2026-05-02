@@ -1,17 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siddhant — Researcher & Robotics Engineer</title>
+  <title>Siddhant — ML Researcher & Robotics Engineer</title>
   <meta name="description" content="Siddhant's portfolio — autonomous systems, robotics, deep learning." />
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ── Hero ── */
-    .hero {
-      padding: 72px 0 48px;
-    }
+    .hero { padding: 72px 0 48px; }
     .hero-eyebrow {
       font-family: var(--mono);
       font-size: 12px;
@@ -22,30 +19,22 @@
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(36px, 6vw, 54px);
+      font-size: clamp(34px, 6vw, 52px);
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 24px;
-      max-width: 640px;
+      max-width: 600px;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--muted);
-    }
+    .hero h1 em { font-style: italic; color: var(--muted); }
     .hero-bio {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--muted);
-      max-width: 520px;
-      line-height: 1.7;
+      max-width: 500px;
+      line-height: 1.75;
       margin-bottom: 28px;
     }
-    .hero-tags {
-      display: flex; gap: 8px; flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .hero-links {
-      display: flex; gap: 12px; flex-wrap: wrap;
-    }
+    .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; font-weight: 500;
@@ -75,7 +64,7 @@
     /* ── Featured Projects ── */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -84,7 +73,7 @@
     }
     .project-card {
       background: var(--surface);
-      padding: 24px;
+      padding: 20px;
       transition: background 0.15s;
       cursor: pointer;
       text-decoration: none;
@@ -92,46 +81,93 @@
       color: inherit;
     }
     .project-card:hover { background: var(--bg); }
-    .project-card-num {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .project-card h3 {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .project-card p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
+    .project-card-num { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+    .project-card h3 { font-size: 13px; font-weight: 500; line-height: 1.4; margin-bottom: 8px; }
+    .project-card p { font-size: 12px; color: var(--muted); line-height: 1.55; }
 
     /* ── Currently ── */
-    .currently-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .currently-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .currently-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 14px;
-      color: var(--muted);
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 14px; color: var(--muted);
     }
     .currently-list li::before {
-      content: '→';
-      font-family: var(--mono);
-      color: var(--muted);
-      flex-shrink: 0;
-      margin-top: 1px;
+      content: '→'; font-family: var(--mono); color: var(--muted); flex-shrink: 0; margin-top: 1px;
     }
     .currently-list li strong { color: var(--text); font-weight: 500; }
+
+    /* ── Two-column page body ── */
+    .page-body {
+      display: grid;
+      grid-template-columns: 1fr 210px;
+      gap: 52px;
+      align-items: start;
+    }
+
+    /* ── Quote rail ── */
+    .quote-rail {
+      position: sticky;
+      top: calc(var(--nav-h) + 28px);
+      height: calc(100vh - var(--nav-h) - 56px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .quote-rail-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      flex-shrink: 0;
+    }
+    .quote-track-wrap {
+      flex: 1;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .quote-track {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: scrollUp 70s linear infinite;
+    }
+    .quote-track:hover { animation-play-state: paused; }
+
+    @keyframes scrollUp {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    .quote-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .quote-card blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .quote-card cite {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      font-style: normal;
+      display: block;
+    }
+
+    @media (max-width: 780px) {
+      .page-body { grid-template-columns: 1fr; }
+      .quote-rail { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -147,75 +183,160 @@
 </nav>
 
 <main class="container">
+  <div class="page-body">
 
-  <section class="hero">
-    <p class="hero-eyebrow fade fade-1">Researcher · Robotics Engineer</p>
-    <h1 class="fade fade-2">Building systems that <em>understand</em> the world around them.</h1>
-    <p class="hero-bio fade fade-3">
-      I work on autonomous systems, robot learning, and the messy gap between
-      simulation and the real world. Currently finishing a degree, pondering whether
-      large mirrors in cis-lunar space could reflect enough sunlight to render
-      daylight savings obsolete — and diving into the math behind why RL converges
-      and optimal control works.
-    </p>
-    <div class="hero-tags fade fade-3">
-      <span class="tag">Autonomous Driving</span>
-      <span class="tag">Robot Learning</span>
-      <span class="tag">PyTorch</span>
-      <span class="tag">ROS2</span>
-      <span class="tag">MuJoCo</span>
-      <span class="tag">Computer Vision</span>
-    </div>
-    <div class="hero-links fade fade-4">
-      <a class="btn btn-primary" href="projects.html">View Projects</a>
-      <a class="btn" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
-      <a class="btn" href="contact.html">Get in touch</a>
-    </div>
-  </section>
+    <!-- ── Left: main content ── -->
+    <div class="main-col">
 
-  <hr class="divider fade fade-4">
+      <section class="hero">
+        <p class="hero-eyebrow fade fade-1">Researcher · Robotics Engineer</p>
+        <h1 class="fade fade-2">Building systems that <em>understand</em> the world around them.</h1>
+        <p class="hero-bio fade fade-3">
+          I work on autonomous systems, robot learning, and the messy gap between
+          simulation and the real world. Currently finishing a degree, pondering
+          whether large mirrors in cis-lunar space could reflect enough sunlight
+          to render daylight savings obsolete — and diving into the math behind
+          why RL converges and optimal control works.
+        </p>
+        <div class="hero-tags fade fade-3">
+          <span class="tag">Autonomous Driving</span>
+          <span class="tag">Robot Learning</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">ROS2</span>
+          <span class="tag">MuJoCo</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <div class="hero-links fade fade-4">
+          <a class="btn btn-primary" href="projects.html">View Projects</a>
+          <a class="btn" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+          <a class="btn" href="contact.html">Get in touch</a>
+        </div>
+      </section>
 
-  <section class="section fade fade-5">
-    <p class="section-heading">Selected work</p>
-    <div class="project-grid">
-      <a class="project-card" href="projects.html#vlm">
-        <p class="project-card-num">01</p>
-        <h3>Semantic Observer Layer for Autonomous Vehicles</h3>
-        <p>VLMs as real-time safety observers on top of standard autopilot stacks.</p>
-      </a>
-      <a class="project-card" href="projects.html#quadruped">
-        <p class="project-card-num">02</p>
-        <h3>Symmetry-Aware Reward Shaping for Quadrupedal Locomotion</h3>
-        <p>Teaching the Unitree Go2 to walk naturally using PPO + reward engineering.</p>
-      </a>
-      <a class="project-card" href="projects.html#swarm">
-        <p class="project-card-num">03</p>
-        <h3>Swarm-Based Debris Encirclement in LEO</h3>
-        <p>Decentralized spacecraft formation control under orbital mechanics.</p>
-      </a>
-      <a class="project-card" href="projects.html#hetero-swarm">
-        <p class="project-card-num">04</p>
-        <h3>Decentralized Heterogeneous Swarm Flocking</h3>
-        <p>Drones and ground vehicles coordinating through GNN-based goal assignment.</p>
-      </a>
-    </div>
-    <div style="margin-top:16px; text-align:right;">
-      <a href="projects.html" style="font-size:13px; color:var(--muted); font-family:var(--mono);">All projects →</a>
-    </div>
-  </section>
+      <hr class="divider fade fade-4">
 
-  <hr class="divider">
+      <section class="section fade fade-5">
+        <p class="section-heading">Selected work</p>
+        <div class="project-grid">
+          <a class="project-card" href="projects.html#vlm">
+            <p class="project-card-num">01</p>
+            <h3>Semantic Observer Layer for Autonomous Vehicles</h3>
+            <p>VLMs as real-time safety observers on top of standard autopilot stacks.</p>
+          </a>
+          <a class="project-card" href="projects.html#quadruped">
+            <p class="project-card-num">02</p>
+            <h3>Symmetry-Aware Reward Shaping for Quadrupedal Locomotion</h3>
+            <p>Teaching the Unitree Go2 to walk naturally using PPO + reward engineering.</p>
+          </a>
+          <a class="project-card" href="projects.html#swarm">
+            <p class="project-card-num">03</p>
+            <h3>Swarm-Based Debris Encirclement in LEO</h3>
+            <p>Decentralized spacecraft formation control under orbital mechanics.</p>
+          </a>
+          <a class="project-card" href="projects.html#hetero-swarm">
+            <p class="project-card-num">04</p>
+            <h3>Decentralized Heterogeneous Swarm Flocking</h3>
+            <p>Drones and ground vehicles coordinating through GNN-based goal assignment.</p>
+          </a>
+        </div>
+        <div style="margin-top:16px; text-align:right;">
+          <a href="projects.html" style="font-size:13px; color:var(--muted); font-family:var(--mono);">All projects →</a>
+        </div>
+      </section>
 
-  <section class="section">
-    <p class="section-heading">Currently</p>
-    <ul class="currently-list">
-      <li><strong>Humanoid playground</strong> — whole-body controllers + motion planners for grad students to explore</li>
-      <li><strong>Agile hexcopter</strong> — modelling in MuJoCo, fighting kinematic chain constraints</li>
-      <li><strong>CARLA + Autoware + Cosmos Reason 2</strong> — novel integration with MRM handler</li>
-      <li><strong>Academic degree</strong> — finishing coursework, writing research</li>
-    </ul>
-  </section>
+      <hr class="divider">
 
+      <section class="section">
+        <p class="section-heading">Currently</p>
+        <ul class="currently-list">
+          <li><strong>Humanoid playground</strong> — whole-body controllers + motion planners for grad students to explore</li>
+          <li><strong>Agile hexcopter</strong> — modelling in MuJoCo, fighting kinematic chain constraints</li>
+          <li><strong>CARLA + Autoware + Cosmos Reason 2</strong> — novel integration with MRM handler</li>
+          <li><strong>Academic degree</strong> — finishing coursework, writing research</li>
+        </ul>
+      </section>
+
+    </div><!-- /main-col -->
+
+    <!-- ── Right: quote rail ── -->
+    <aside class="quote-rail fade fade-2">
+      <p class="quote-rail-label">Quotes</p>
+      <div class="quote-track-wrap">
+        <div class="quote-track">
+
+          <div class="quote-card">
+            <blockquote>"There's always a bigger fish."</blockquote>
+            <cite>— Star Wars: The Phantom Menace</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Your focus determines your reality."</blockquote>
+            <cite>— Star Wars: The Phantom Menace</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"You're smarter than you look, Marshall. That's probably not a good thing."</blockquote>
+            <cite>— Shutter Island</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I'd like to exchange my sleep with you, like batteries."</blockquote>
+            <cite>— Decision to Leave</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"The shadows betray you, because they belong to me."</blockquote>
+            <cite>— Bane, The Dark Knight Rises</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"No one will protect what they don't care about; and no one will care about what they have never experienced."</blockquote>
+            <cite>— David Attenborough</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"The key to good decision making is not knowledge. It is understanding. We are swimming in the former. We are desperately lacking in the latter."</blockquote>
+            <cite>— Malcolm Gladwell</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Somewhere, something incredible is waiting to be known."</blockquote>
+            <cite>— Carl Sagan</cite>
+          </div>
+
+          <!-- Duplicate set for seamless infinite loop -->
+
+          <div class="quote-card">
+            <blockquote>"There's always a bigger fish."</blockquote>
+            <cite>— Star Wars: The Phantom Menace</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Your focus determines your reality."</blockquote>
+            <cite>— Star Wars: The Phantom Menace</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"You're smarter than you look, Marshall. That's probably not a good thing."</blockquote>
+            <cite>— Shutter Island</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I'd like to exchange my sleep with you, like batteries."</blockquote>
+            <cite>— Decision to Leave</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"The shadows betray you, because they belong to me."</blockquote>
+            <cite>— Bane, The Dark Knight Rises</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"No one will protect what they don't care about; and no one will care about what they have never experienced."</blockquote>
+            <cite>— David Attenborough</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"The key to good decision making is not knowledge. It is understanding. We are swimming in the former. We are desperately lacking in the latter."</blockquote>
+            <cite>— Malcolm Gladwell</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Somewhere, something incredible is waiting to be known."</blockquote>
+            <cite>— Carl Sagan</cite>
+          </div>
+
+        </div><!-- /quote-track -->
+      </div><!-- /quote-track-wrap -->
+    </aside>
+
+  </div><!-- /page-body -->
 </main>
 
 <footer>
