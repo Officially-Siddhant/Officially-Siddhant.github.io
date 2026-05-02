@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Siddhant</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { padding: 56px 0 36px; }
+    .page-header h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 42px);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .page-header p { font-size: 15px; color: var(--muted); max-width: 480px; }
 
+    /* ── Project entry ── */
+    .project-list { display: flex; flex-direction: column; gap: 0; }
+
+    .project-entry {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .project-entry:last-child { border-bottom: 1px solid var(--border); }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .project-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+    .project-title-block { flex: 1; }
+    .project-title-block h2 {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .project-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+    .project-status {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .project-status.ongoing {
+      border-color: #C5E0B8;
+      background: #F0F9EB;
+      color: #3A6B2A;
+    }
+    .project-status.novel {
+      border-color: #C2D8F5;
+      background: #EEF5FD;
+      color: #1A4A7A;
+    }
+    .project-body {
+      padding-left: 48px;
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      max-width: 680px;
+    }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .project-links { display: flex; gap: 10px; }
+    .project-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: var(--radius);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .project-link:hover { color: var(--text); border-color: #A8A49E; }
+
+    /* ── Q&A ── */
+    .qa-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin: 56px 0;
+    }
+    .qa-section h2 {
+      font-family: var(--serif);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .qa-section p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .giscus-note {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--tag-bg);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .project-body { padding-left: 0; margin-top: 12px; }
+      .project-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Siddhant</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <header class="page-header fade fade-1">
+    <h1>Projects</h1>
+    <p>Research, engineering, and experiments — from simulation to real hardware.</p>
+  </header>
+
+  <div class="project-list">
+
+    <!-- 01 -->
+    <div class="project-entry fade fade-2" id="vlm">
+      <div class="project-top">
+        <span class="project-num">01</span>
+        <div class="project-title-block">
+          <h2>Semantic Observer Layer for Autonomous Vehicles: Pre-Deployment Feasibility Study of VLMs for Low-Latency Anomaly Detection</h2>
+          <div class="project-meta">
+            <span class="project-status">Research</span>
+            <span class="project-status novel">Novel approach</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Today's self-driving systems excel at detecting objects but still struggle with
+          ambiguous or unusual situations — a person behaving unpredictably, a scene that
+          doesn't match training data. I built a system that inserts a Vision-Language Model
+          as a semantic "observer" between perception and planning in a standard autopilot
+          stack (Autoware + CARLA). The VLM continuously checks whether what the vehicle
+          sees makes sense and triggers safe fallback behaviours when it doesn't.
+          By quantizing the model, I demonstrated that VLMs can operate at a consistent
+          rate alongside real-time control loops, achieving strong hazard precision —
+          a promising step toward VLMs as practical semantic safety layers.
+        </p>
+        <div class="project-tags">
+          <span class="tag">VLMs</span>
+          <span class="tag">CARLA</span>
+          <span class="tag">Autoware</span>
+          <span class="tag">Quantization</span>
+          <span class="tag">Anomaly Detection</span>
+          <span class="tag">ADAS</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="project-entry fade fade-2" id="quadruped">
+      <div class="project-top">
+        <span class="project-num">02</span>
+        <div class="project-title-block">
+          <h2>Symmetry-Aware Reward Shaping for Quadrupedal Locomotion Using PPO</h2>
+          <div class="project-meta">
+            <span class="project-status">Research</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          How do you teach a robot to walk in a way that's not just functional but
+          physically meaningful? I trained the Unitree Go2 in Isaac Lab using PPO with
+          a torque-level PD control setup, but the key contribution is the reward function.
+          Rather than only rewarding forward velocity, I added terms for foot clearance,
+          contact timing, symmetry across legs and gait phases, smooth actions, and
+          postural stability. The goal: locomotion that is energy-conscious, balanced,
+          and actually transferable to real hardware — bridging "the robot moves" and
+          "the robot moves like it should."
+        </p>
+        <div class="project-tags">
+          <span class="tag">PPO</span>
+          <span class="tag">Isaac Lab</span>
+          <span class="tag">Unitree Go2</span>
+          <span class="tag">Reward Shaping</span>
+          <span class="tag">Locomotion</span>
+          <span class="tag">Sim-to-Real</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="project-entry fade fade-3" id="swarm">
+      <div class="project-top">
+        <span class="project-num">03</span>
+        <div class="project-title-block">
+          <h2>Swarm-Based Debris Encirclement in Low Earth Orbit</h2>
+          <div class="project-meta">
+            <span class="project-status">Research</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Multiple spacecraft coordinating to contain space debris — without a central
+          planner. I developed a velocity-based controller inspired by cyclic pursuit,
+          where each satellite adjusts its trajectory relative to its neighbours to form
+          a stable ring around a target. The system operates under full orbital mechanics,
+          modelled via Clohessy–Wiltshire equations, and was validated across three
+          physics frameworks (Kepler, Newton–Euler, MuJoCo). Looking forward, this connects
+          to differential drag as a passive, fuel-efficient alternative to thruster-based
+          formation control.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Orbital Mechanics</span>
+          <span class="tag">Swarm Robotics</span>
+          <span class="tag">CW Equations</span>
+          <span class="tag">MuJoCo</span>
+          <span class="tag">Decentralized Control</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="project-entry fade fade-3" id="hetero-swarm">
+      <div class="project-top">
+        <span class="project-num">04</span>
+        <div class="project-title-block">
+          <h2>Decentralized Heterogeneous Swarm Flocking</h2>
+          <div class="project-meta">
+            <span class="project-status">Research</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          3 drones and 3 Clearpath Jackal UGVs moving as a coordinated group, with no
+          central controller. Each agent follows local flocking rules — separation, cohesion,
+          alignment — using only its own sensing. On top of this, a Graph Neural Network
+          layer handles dynamic goal assignment, deciding which agent goes where based on
+          the current swarm configuration. Classical control handles safety and stability;
+          the GNN handles higher-level coordination. The result is a scalable multi-robot
+          architecture for complex, mixed-terrain environments.
+        </p>
+        <div class="project-tags">
+          <span class="tag">GNN</span>
+          <span class="tag">Flocking</span>
+          <span class="tag">UAV</span>
+          <span class="tag">UGV</span>
+          <span class="tag">Multi-Robot</span>
+          <span class="tag">ROS2</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="project-entry fade fade-4" id="humanoid">
+      <div class="project-top">
+        <span class="project-num">05</span>
+        <div class="project-title-block">
+          <h2>Humanoid Playground — Whole Body Controllers & Motion Planners</h2>
+          <div class="project-meta">
+            <span class="project-status ongoing">Ongoing</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          An open playground for humanoid robot learning — starting with whole-body
+          controllers (gravity compensation, PPO-trained gaits) and progressively adding
+          motion planners on top. The goal is a modular sandbox where grad students can
+          drop in new controllers and see what happens, without reinventing the simulation
+          infrastructure. Currently: gravity comp working, shaky PPO running. Next:
+          cleaner RL-based gaits and simple motion planners.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Humanoids</span>
+          <span class="tag">Whole-Body Control</span>
+          <span class="tag">Genesis</span>
+          <span class="tag">PPO</span>
+          <span class="tag">Open Source</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="project-entry fade fade-4" id="hexcopter">
+      <div class="project-top">
+        <span class="project-num">06</span>
+        <div class="project-title-block">
+          <h2>Agile Hexcopter Modelling in MuJoCo</h2>
+          <div class="project-meta">
+            <span class="project-status ongoing">Ongoing</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Modelling a high-agility hexcopter in MuJoCo, with a focus on getting the
+          dynamics right before training any control policy. A recurring challenge:
+          MuJoCo's tree-based kinematic structure doesn't support closed kinematic loops
+          natively, requiring careful use of equality constraints to simulate real mechanical
+          linkages. Working through this constraint-by-constraint, with plans to evaluate
+          Genesis as an alternative once the model is physically consistent.
+        </p>
+        <div class="project-tags">
+          <span class="tag">MuJoCo</span>
+          <span class="tag">UAV</span>
+          <span class="tag">Kinematics</span>
+          <span class="tag">Dynamics Modelling</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="project-entry fade fade-5" id="cosmos">
+      <div class="project-top">
+        <span class="project-num">07</span>
+        <div class="project-title-block">
+          <h2>CARLA–Autoware Integration via Cosmos Reason 2 & MRM Handler</h2>
+          <div class="project-meta">
+            <span class="project-status novel">Novel</span>
+            <span class="project-status ongoing">Ongoing</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          A novel integration of CARLA and Autoware that exploits NVIDIA's Cosmos Reason 2
+          model alongside a Minimal Risk Manoeuvre (MRM) handler. The idea: use world-model
+          reasoning at the interface between simulation and the autonomy stack to improve
+          how the system responds to edge cases and safety-critical scenarios. Details
+          coming as the work matures — this one is fresh.
+        </p>
+        <div class="project-tags">
+          <span class="tag">CARLA</span>
+          <span class="tag">Autoware</span>
+          <span class="tag">Cosmos Reason 2</span>
+          <span class="tag">MRM</span>
+          <span class="tag">World Models</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Q&A -->
+  <div class="qa-section fade">
+    <h2>Questions & suggestions</h2>
+    <p>
+      Curious about a project? Have a suggestion for what to explore next, or a
+      question about methodology? Leave a note below — I read everything.
+    </p>
+
+    <!--
+      GISCUS EMBED — replace the attributes below after configuring at giscus.app
+      Steps:
+        1. Go to https://giscus.app
+        2. Enter your repo: Officially-Siddhant/Officially-Siddhant.github.io
+        3. Enable Discussions in your repo settings first
+        4. Copy the generated <script> tag and replace this placeholder
+    -->
+    <div id="giscus-placeholder" style="background:var(--tag-bg); border-radius:var(--radius); padding:28px; text-align:center;">
+      <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin:0;">
+        💬 Comments powered by Giscus (GitHub Discussions)<br><br>
+        To activate: go to <strong>giscus.app</strong>, connect this repo,
+        and replace this block with the generated &lt;script&gt; tag.
+      </p>
+    </div>
+
+    <p class="giscus-note">
+      // Powered by GitHub Discussions — sign in with your GitHub account to comment.
+      No tracking. No ads.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <span class="mono">Siddhant · Officially-Siddhant.github.io</span>
+</footer>
+
+</body>
+</html>
