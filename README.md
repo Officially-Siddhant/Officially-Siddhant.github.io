@@ -1,7 +1,6 @@
 # sous_chef's : Portfolio Site
 **Live at:** https://officially-siddhant.github.io
 
----
 
 ## File structure
 
@@ -14,7 +13,6 @@ Officially-Siddhant.github.io/
 └── style.css        ← Shared styles
 ```
 
----
 
 ## How to deploy
 
