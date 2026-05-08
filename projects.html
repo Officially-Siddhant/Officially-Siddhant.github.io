@@ -64,6 +64,11 @@
       background: #EEF5FD;
       color: #1A4A7A;
     }
+    .project-status.published {
+      border-color: #D4C5F5;
+      background: #F3EEFE;
+      color: #4A1A8A;
+    }
     .project-body {
       padding-left: 48px;
     }
@@ -86,6 +91,21 @@
       transition: color 0.15s, border-color 0.15s;
     }
     .project-link:hover { color: var(--text); border-color: #A8A49E; }
+
+    /* ── Result callout ── */
+    .result-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #27572A;
+      background: #EBF5E8;
+      border: 1px solid #C5E0B8;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin-bottom: 14px;
+    }
 
     /* ── Q&A ── */
     .qa-section {
@@ -358,30 +378,47 @@
       <div class="project-top">
         <span class="project-num">07</span>
         <div class="project-title-block">
-          <h2>CARLA–Autoware Integration via Cosmos Reason 2 & MRM Handler</h2>
+          <h2>Beyond Deterministic Failure Modes: A VLM-Driven Observer for Safety-Critical Maneuver Triggering in Autonomous Vehicles</h2>
           <div class="project-meta">
+            <span class="project-status published">Published</span>
             <span class="project-status novel">Novel</span>
-            <span class="project-status ongoing">Ongoing</span>
           </div>
         </div>
       </div>
       <div class="project-body">
         <p class="project-desc">
-          A novel integration of CARLA and Autoware that exploits NVIDIA's Cosmos Reason 2
-          model alongside a Minimal Risk Manoeuvre (MRM) handler. The idea: use world-model
-          reasoning at the interface between simulation and the autonomy stack to improve
-          how the system responds to edge cases and safety-critical scenarios. Details
-          coming as the work matures — this one is fresh.
+          Modern autopilots fail silently on semantic anomalies — cascade failures across
+          tightly coupled perception, planning, and control modules make real-time debugging
+          nearly impossible. This paper deploys Cosmos-Reason1-7B as a closed-loop semantic
+          observer layer on top of Autoware running in CARLA, processing four time-synchronized
+          RGB camera views jointly at 1–2 Hz. The observer classifies scenes into MRM tiers
+          (Emergency Stop, Comfortable Stop, Pull Over) and routes decisions to Autoware's
+          deterministic MRM handler — never directly commanding the controller, preserving
+          ISO 26262-aligned safety guarantees. FP16 + FlashAttention 2.0 sustains sub-500 ms
+          inference across all four views. The Zenoh pub/sub bridge offloads inference to a
+          remote GPU instance, sidestepping VRAM contention with Autoware's TensorRT models.
+          A custom Unreal Engine 4.26 digital twin of NYU Brooklyn Commons serves as the
+          test environment. CARLA Leaderboard results: baseline Autoware records 7 collisions
+          and 40% route completion; the augmented stack records 0 collisions and 100% route
+          completion on Run 1.
         </p>
+        <div class="result-callout">
+          ✦ 7 collisions → 0 &nbsp;·&nbsp; 40% route completion → 100% (Run 1)
+        </div>
         <div class="project-tags">
+          <span class="tag">Cosmos-Reason1-7B</span>
           <span class="tag">CARLA</span>
           <span class="tag">Autoware</span>
-          <span class="tag">Cosmos Reason 2</span>
           <span class="tag">MRM</span>
-          <span class="tag">World Models</span>
+          <span class="tag">VLMs</span>
+          <span class="tag">FP16 + FlashAttention 2</span>
+          <span class="tag">ROS2</span>
+          <span class="tag">Zenoh</span>
+          <span class="tag">ISO 26262</span>
         </div>
         <div class="project-links">
           <a class="project-link" href="https://github.com/Officially-Siddhant" target="_blank">GitHub ↗</a>
+          <a class="project-link" href="#" target="_blank">Paper ↗</a>
         </div>
       </div>
     </div>
